@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>College Dashboard Login</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background-color: #f0f2f5;
+    }
+    .login-container, .dashboard {
+      max-width: 600px;
+      margin: 5% auto;
+      background-color: white;
+      padding: 2rem;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      border-radius: 10px;
+    }
+    h1, h2 {
+      text-align: center;
+      color: #0077cc;
+    }
+    input[type="text"], input[type="password"] {
+      width: 100%;
+      padding: 0.75rem;
+      margin: 0.5rem 0;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    button {
+      width: 100%;
+      padding: 0.75rem;
+      background-color: #0077cc;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .hidden {
+      display: none;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 1rem;
+    }
+    th, td {
+      border: 1px solid #ccc;
+      padding: 0.5rem;
+      text-align: center;
+    }
+    .card {
+      background-color: #fff;
+      padding: 1rem;
+      margin: 1rem 0;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    header {
+      background-color: #0077cc;
+      color: white;
+      padding: 1rem;
+      text-align: center;
+      border-radius: 8px;
+    }
+    .container section {
+      margin-bottom: 2rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="login-container" id="login-box">
+    <h1>Login</h1>
+    <input type="text" id="username" placeholder="Username" />
+    <input type="password" id="password" placeholder="Password" />
+    <button onclick="login()">Login</button>
+    <p id="error" style="color:red; text-align:center;"></p>
+  </div>
+
+  <div class="dashboard hidden" id="dashboard">
+    <header>
+      <h1>Student Dashboard</h1>
+      <p>Name: Prachi Sharma | Roll No: A2023BBAT11223</p>
+    </header>
+
+    <div class="container">
+      <section>
+        <h2>Class Schedule</h2>
+        <table>
+          <tr><th>Period 1</th><th>Period 2</th><th>Period 3</th></tr>
+          <tr><td>CB</td><td>RM</td><td>FM</td></tr>
+        </table>
+      </section>
+
+      <section>
+        <h2>Attendance</h2>
+        <table>
+          <tr><th>CB</th><th>RM</th><th>FM</th></tr>
+          <tr><td>Present</td><td>Present</td><td>Present</td></tr>
+        </table>
+      </section>
+
+      <section>
+        <h2>Account Summary</h2>
+        <table>
+          <tr><th>Semester Fee</th><th>Paid</th><th>Due</th></tr>
+          <tr><td>₹60,000</td><td>₹60,000</td><td>₹0</td></tr>
+        </table>
+      </section>
+
+      <section>
+        <h2>Participation</h2>
+        <div class="card">Attended Annual Sports Meet 2024</div>
+        <div class="card">Participated in Tech Fest 2024</div>
+        <div class="card">Workshop: AI & Data Analytics 2024</div>
+      </section>
+    </div>
+  </div>
+
+  <script>
+    function login() {
+      const user = document.getElementById("username").value;
+      const pass = document.getElementById("password").value;
+      const error = document.getElementById("error");
+
+      if (user === "A2023BBAT11223" && pass === "prachi@123") {
+        document.getElementById("login-box").style.display = "none";
+        document.getElementById("dashboard").classList.remove("hidden");
+      } else {
+        error.textContent = "Invalid username or password!";
+      }
+    }
+  </script>
+</body>
+</html>
